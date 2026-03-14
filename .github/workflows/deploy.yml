@@ -28,7 +28,7 @@ jobs:
       - name: Build project
         run: npm run build
         env:
-          VITE_DB_CONNECTION: ${{ secrets.VITE_DB_CONNECTION }}
+          VITE_API_HOST: ${{ secrets.VITE_API_HOST }}
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

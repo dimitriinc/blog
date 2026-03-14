@@ -1,5 +1,14 @@
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 ul {
     display: flex;
     flex-direction: row;
     gap: 2rem;
+    text-decoration: none;
+    align-items: center;
+    justify-content: center;
 }
