@@ -1,29 +1,39 @@
 import './Navigation.css'
+import { useState, useEffect } from 'react'
 
 const apiHost = import.meta.env.VITE_API_HOST
-console.log('API base: ' + apiHost)
-
-async function getCategories() {
-    const res = await fetch(apiHost + '/categories')
-    const data = await res.json()
-    return data
-}
 
 function Navigation() {
-    const data = getCategories()
+    const [categories, setCategories] = useState([])
+    const [loading, setLoading] = useState(true)
+    const [error, setError] = useState(null)
+    
+    useEffect(() => {
+        fetch(apiHost + '/categories')
+            .then(res => res.json())
+            .then(data => {
+                setCategories(data)
+                setLoading(false)
+                console.log(data)
+            })
+            .catch(err => {
+                setError(err.message)
+                setLoading(false)
+            })
+    }, [])
+
+    if (loading) return <p>Loading categories...</p>
+    if (error) return <p>Error: {error}</p>
 
     return (
         <>
             <nav>
                 <ul>
-                    {data.array.forEach((category) => (
-                        <li>category.name</li>
-                    ))}
-                    {/* <li>Being</li>
-                    <li>Theory</li>
-                    <li>Write-Ups</li>
-                    <li>Course</li>
-                    <li>Art</li> */}
+                    {categories.map(category => 
+                        (<li key={category.category_id}>
+                            {category.name}
+                        </li>)
+                    )}
                 </ul>
             </nav>
         </>
