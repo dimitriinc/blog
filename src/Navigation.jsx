@@ -1,6 +1,7 @@
 import './Navigation.css'
 
 const apiHost = import.meta.env.VITE_API_HOST
+console.log('API base: ' + apiHost)
 
 async function getCategories() {
     const res = await fetch(apiHost + '/categories')
@@ -10,7 +11,7 @@ async function getCategories() {
 
 function Navigation() {
     getCategories()
-    
+
     return <>
         <nav>
             <ul>
