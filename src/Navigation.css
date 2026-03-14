@@ -8,7 +8,7 @@ ul {
     display: flex;
     flex-direction: row;
     gap: 2rem;
-    text-decoration: none;
+    list-style: none;
     align-items: center;
     justify-content: center;
 }
