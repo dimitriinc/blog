@@ -1,6 +1,16 @@
 import './Navigation.css'
 
+const apiHost = import.meta.env.VITE_API_HOST
+
+async function getCategories() {
+    const res = await fetch(apiHost + '/categories')
+    const data = await res.json()
+    console.log(data)
+}
+
 function Navigation() {
+    getCategories()
+    
     return <>
         <nav>
             <ul>

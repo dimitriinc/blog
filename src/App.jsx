@@ -5,7 +5,6 @@ import Navigation from './Navigation'
 function App() {
     const [count, setCount] = useState(0)
 
-    const connectionString = import.meta.env.VITE_DB_CONNECTION
 
     return (
         <>
