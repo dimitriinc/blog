@@ -10,7 +10,6 @@ function App() {
         <>
             <h1>Blog</h1>
             <Navigation />
-            <p>{connectionString}</p>
         </>
     )
 }
